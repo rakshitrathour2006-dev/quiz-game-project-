@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Simple Quiz</title>
+    <style>
+        body {
+            background: #5f8bf1;
+            font-family: "Poppins", sans-serif;
+            text-align: center;
+            padding-top: 60px;
+            color: #444;
+        }
+
+        .container {
+            background: #67d0f0;
+            width: 360px;
+            padding: 28px;
+            border-radius: 18px;
+            margin: auto;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            font-size: 26px;
+            color: #1e1779;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.5;
+            color: #5a5a5a;
+        }
+
+        button {
+            background: #e97fb3;
+            color: #fff;
+            padding: 12px 26px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 15px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #e566a4;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>My Little Quiz Project</h2>
+        <p>
+            I made this small quiz using basic JavaScript concepts <br>
+            <br>  
+            Click the button whenever you're ready!
+        </p>
+        <button onclick="runQuiz()">Start Quiz</button>
+    </div>
+
+    <script>
+        function runQuiz() {
+            let questions = [
+                { q: "What is the capital of India?", a: "delhi" },
+                { q: "What is 2 + 2?", a: "4" },
+                { q: "What color is the sky?", a: "blue" },
+                { q: "HTML stands for?", a: "hypertext markup language" },
+                { q: "Which is the largest planet? (Earth or Jupiter)", a: "jupiter" }
+            ];
+
+            let score = 0;
+
+            for (let i = 0; i < questions.length; i++) {
+                let userAnswer = prompt(questions[i].q);
+
+                if (!userAnswer) {
+                    alert("Looks like you didn’t type anything. Try again.");
+                    continue;
+                }
+
+                userAnswer = userAnswer.toLowerCase().trim();
+
+                if (userAnswer === questions[i].a) {
+                    alert("Nice! That's correct.");
+                    score++;
+                } else {
+                    alert("That's not right.\nCorrect answer: " + questions[i].a);
+                }
+            }
+
+            alert("You're done!\nYour final score: " + score + "/" + questions.length);
+        }
+    </script>
+
+</body>
+</html>
+
